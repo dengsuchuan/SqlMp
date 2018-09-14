@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {config_load file='css.conf'}
+    {config_load file='js.conf'}
+    <title>SqlMp -- 2.选择数据库</title>
+    <link rel="stylesheet" href="{#Bootstrap_css_url#}bootstrap.min.css">
+    <script src="{#Bootstrap_js_url#}jquery-3.2.1.min.js"></script>
+    <script src="{#Bootstrap_js_url#}bootstrap.min.js"></script>
+    <script src="{#dialog_js_url#}dialog.js"></script>
+    <script src="{#dialog_layer_js_url#}layer.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1 style="color:rgb(55,173,217)">MySql命令量产工具
+                    <small>
+                        <span class="glyphicon glyphicon-oil"></span>
+                        帮助开发者快速生成测试数据~~
+                    </small>
+                </h1>
+            </div>
+        </div>
+        <div class="col-md-12 thumbnail">
+            <form action="" role="form">
+                <fieldset>
+                    <legend class="text-center">2.选择数据库</legend>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered text-center">
+                            <tr class="active">
+                                <th class="text-center">数据库名</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                            {foreach $array as $v}
+                            <tr>
+                                <td>{$v.Database}</td>
+                                <td>
+                                    <a href="?ac=openDb&DbName={$v.Database}" class="btn btn-info">进入</a>
+                                </td>
+                            </tr>
+                            {foreachelse}
+                            <tr>
+                                <td>没有数据</td>
+                                <td>无法操作</td>
+                            </tr>
+                            {/foreach}
+                        </table>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
